@@ -12,7 +12,7 @@ import './App.scss';
 /**
  * Use Apollo to connect to GitHub using GraphQL
  */
-const token = "c4d8a8596643fdcea6bd36d3756c042e584bd0d4";
+const token = process.env.REACT_APP_TOKEN || "";
 const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
@@ -58,7 +58,7 @@ var theme = createMuiTheme({
 
 });
 
-theme.typography.subtitle1 = {
+theme.typography.body1 = {
   fontSize: "44px",
   [theme.breakpoints.up('xs')]: {
     fontSize: 'clamp(44px,14vw,150px)'
@@ -91,19 +91,19 @@ function App() {
         <div className="App">
           <Header color="primary"/>
           <div style={style.section}>
-            <p id="projects" style={style.sectionHeader}>
-              <Typography variant="subtitle1">
+            <div id="projects" style={style.sectionHeader}>
+              <Typography variant="body1">
                 _Projects
               </Typography>
-            </p>
+            </div>
             <Projects style={style.sectionBody}/>
           </div>
           <div style={style.section} >
-            <p id="me" style={style.sectionHeader}>
-              <Typography variant="subtitle1">
+            <div id="me" style={style.sectionHeader}>
+              <Typography variant="body1">
                 _Me
               </Typography>
-            </p>
+            </div>
             <Me style={style.sectionBody}/>
           </div>
           
