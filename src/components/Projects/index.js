@@ -114,7 +114,7 @@ export default function Projects(props) {
   var tiles = data.map(function (tile) {
     let datum = { ...tile };
     if (!tile.img || parseUri(tile.img).authority === "avatars.githubusercontent.com") {
-      datum.img = `http://via.placeholder.com/1280x640.webp/000000/FFFFFF?text=${tile.title}`;
+      datum.img = `https://via.placeholder.com/1280x640.webp/000000/FFFFFF?text=${tile.title}`;
     }
     return datum;
   });

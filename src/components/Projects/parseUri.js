@@ -19,7 +19,6 @@ export default function parseUri(str) {
             q[keys[i]]= m[i];
         }
     }
-    console.log(q);
     return q;    
 }
 

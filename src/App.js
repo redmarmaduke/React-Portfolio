@@ -12,7 +12,7 @@ import './App.scss';
 /**
  * Use Apollo to connect to GitHub using GraphQL
  */
-const token = process.env.REACT_APP_TOKEN || "";
+const token = process.env.REACT_APP_TOKEN || process.env.GITHUB_TOKEN || "";
 const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
