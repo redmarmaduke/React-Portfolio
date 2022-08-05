@@ -67,8 +67,8 @@ export default function MenuAppBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose} className={classes.menuItem}><a href="#projects" style={{ color: "inherit", textDecoration: "inherit" }}>Projects</a></MenuItem>
-            <MenuItem onClick={handleClose} className={classes.menuItem}><a href="#me" style={{ color: "inherit", textDecoration: "inherit" }}>Contact</a></MenuItem>
+            <MenuItem onClick={handleClose} className={classes.menuItem}><a href="#projects" style={{ color: "inherit", textDecoration: "initial" }}>Projects</a></MenuItem>
+            <MenuItem onClick={handleClose} className={classes.menuItem}><a href="#me" style={{ color: "inherit", textDecoration: "initial" }}>Contact</a></MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

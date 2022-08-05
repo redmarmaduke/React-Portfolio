@@ -39,18 +39,19 @@ const client = new ApolloClient({
 var theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#777",
+      main: "#617968",
     },
     secondary: {
-      main: "#000"
+      main: "#6E526B"
     },
+    /*
     background: {
       default: "#DDD"
     },
     text: {
       primary: "#FFF",
       secondary: "#000"
-    }
+    }*/
   },
   typography: {
     fontFamily: ["'Permanent Marker'", "cursive"].join(","),
@@ -59,10 +60,12 @@ var theme = createMuiTheme({
 });
 
 theme.typography.body1 = {
-  fontSize: "44px",
+  fontSize: "22px",
+/*
   [theme.breakpoints.up('xs')]: {
-    fontSize: 'clamp(44px,14vw,150px)'
+    fontSize: 'clamp(10px,7vw,22px)'
   }
+*/
 };
 
 //theme = responsiveFontSizes(theme);
@@ -93,7 +96,7 @@ function App() {
           <div style={style.section}>
             <div id="projects" style={style.sectionHeader}>
               <Typography variant="body1">
-                _Projects
+                Projects
               </Typography>
             </div>
             <Projects style={style.sectionBody}/>
@@ -101,7 +104,7 @@ function App() {
           <div style={style.section} >
             <div id="me" style={style.sectionHeader}>
               <Typography variant="body1">
-                _Me
+                About Me
               </Typography>
             </div>
             <Me style={style.sectionBody}/>

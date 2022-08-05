@@ -26,7 +26,7 @@ query {
 const PROFILE_DATA = {
     gitHubUrl: "https://github.com/redmarmaduke",
     linkedInUrl: "https://www.linkedin.com/in/manuel-nunes-272ba31b/",
-    whoAmI: "Looking for roles in web development, SDET for systems / firmware, or computer graphics.  I'm a computer graphics hobbyist and a graduate of the UC Berkeley Coding Boot Camp."
+    whoAmI: "Looking for roles in web Software Development/QA for Systems, Firmware, or Computer graphics.  I'm a computer graphics hobbyist and a graduate of CSU Chico and the UC Berkeley Coding Boot Camp."
 }
 
 export default function Me(props) {
@@ -59,7 +59,7 @@ export default function Me(props) {
                     </IconButton>
                 </div>
             </div>
-            <p style={{ float: "clear", textAlign: "left", fontSize: "40px", color: "#000" }}>{PROFILE_DATA.whoAmI}</p>
+            <p style={{ float: "clear", textAlign: "left", fontSize: "16px", color: "#000" }}>{PROFILE_DATA.whoAmI}</p>
         </div>
     )
 }

@@ -4,12 +4,8 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-//import StarBorderIcon from '@material-ui/icons/StarBorder';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import { GridList, GridListTile, GridListTileBar, IconButton } from '@material-ui/core';
+import { GitHub as GitHubIcon } from '@material-ui/icons';
 
 /**
  * Apollo setup
@@ -17,19 +13,33 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { useQuery, gql } from '@apollo/client';
 import parseUri from './parseUri';
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     overflow: 'hidden',
   },
   gridList: {
-    flexWrap: 'nowrap',
+    width: 1280,
+
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
+  },
+  gridListTileRoot: {    
+      aspectRatio: "2 / 1",
+  },
+  gridListTileTile: {    
+    aspectRatio: "2 / 1", 
+  },
+    //imgFullHeight: {},
+  gridListTileImgFullWidth: {
+      width: "100%",
+      aspectRatio: "2 / 1"
+  },
+  gridListTileImgFullHeight: {
+    height: "100%",
+    aspectRatio: "2 / 1"
   },
   title: {
     color: theme.palette.primary.light,
@@ -92,6 +102,10 @@ const ConditionalWrapper = ({ condition, wrapper, children }) => {
   return condition ? wrapper(children) : <>{children}</>;
 }
 
+/**
+ * @constructor
+ * @param {*} props 
+ */
 export default function Projects(props) {
   const classes = useStyles();
   var { loading, error, data } = useQuery(PINNED_REPOSITORIES);
@@ -122,14 +136,20 @@ export default function Projects(props) {
   return (
     <div className={classes.root}>
       {/*cols={() => 2.5}*/}
-      <GridList className={classes.gridList} cols={1}>
+      <GridList className={classes.gridList} cellHeight='auto' cols={2} spacing={4}>
         {tiles.map((tile, index) => (
-          <GridListTile key={index} style={{ aspectRatio: "2/1", width: "clamp(320px, 67vw ,1280px)", height: "initial" }}>
+          <GridListTile classes={{
+            root: classes.gridListTileRoot,
+            tile: classes.gridListTileTile,
+            imgFullWidth: classes.gridListTileImgFullWidth,
+            imgFullHeight: classes.gridListTileImgFullHeight,
+          }} key={index} cols={index === 0 ? 2 : 1} rows={index === 0 ? 2 : 1}>
             <ConditionalWrapper
               condition={tile.deployedUrl}
               wrapper={(children) => <a href={tile.deployedUrl}>{children}</a>}
             >
-              <img style={{ maxWidth: "100%", maxHeight: "100%", aspectRatio: "2/1" }} src={tile.img} alt={tile.title} />
+              <img style={{ width: "100%", aspectRatio: "2 / 1" }} src={tile.img} alt={tile.title} />
+            
             </ConditionalWrapper>
             <GridListTileBar
               title={tile.title}
