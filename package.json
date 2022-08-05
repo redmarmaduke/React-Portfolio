@@ -23,7 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts --optimize_for_size --max_old_space_size=460 start",
-    "build": "react-scripts build",
+    "build": "react-scripts --optimize_for_size --max_old_space_size=460 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
