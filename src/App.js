@@ -74,13 +74,11 @@ theme.typography.body1 = {
 let style = {
   section: {
     padding: "0px 24px",
-    height: "100vh"
   },
   sectionHeader: {
     marginTop: 0,
     marginBottom: 0,
     textAlign: "left",
-    //fontSize: "150px" 
   },
   sectionBody: {
     marginLeft: 50
