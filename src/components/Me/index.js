@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'center',
-        //width: '1280px',
         aspectRatio: '2 / 1',
     },
     imageContainer: {

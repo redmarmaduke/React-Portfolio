@@ -13,6 +13,11 @@ import { GitHub as GitHubIcon } from '@material-ui/icons';
 import { useQuery, gql } from '@apollo/client';
 import parseUri from './parseUri';
 
+/**
+ * Components
+ */
+import Image from '../Image';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -148,7 +153,7 @@ export default function Projects(props) {
               condition={tile.deployedUrl}
               wrapper={(children) => <a href={tile.deployedUrl}>{children}</a>}
             >
-              <img style={{ width: "100%", aspectRatio: "2 / 1" }} src={tile.img} alt={tile.title} />
+              <Image style={{ width: "100%", aspectRatio: "2 / 1" }} src={tile.img} alt={tile.title} />
             
             </ConditionalWrapper>
             <GridListTileBar
