@@ -17,6 +17,7 @@ import parseUri from './parseUri';
  * Components
  */
 import Image from '../Image';
+//import Image from 'mui-image';
 
 const useStyles = makeStyles((theme) => ({
   root: {
