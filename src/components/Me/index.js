@@ -8,6 +8,31 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
+        aspectRatio: '2 / 1',
+    },
+    imageContainer: {
+        display: 'flex',
+        position: 'relative',
+        justifyContent: 'start',
+        height: '300px',
+    },
+    image: {
+        display: 'inline-block',
+        objectFit: 'cover',
+        aspectRatio: 'auto',
+        margin: "0 1rem",
+    },
+    imageButtonContainer: {
+        display: "flex",
+        justifyContent: "flex-end",
+        position: "absolute",
+        bottom: 0,
+        right: "1rem",
+        color: "#FFF"
+    },
     icons: {
         color: theme.palette.primary.dark,  
     }
@@ -47,10 +72,10 @@ export default function Me(props) {
     let { repositoryOwner: { profileImageUrl: image } } = data;
 //["sticky-container", props.className].join(" ")
     return (
-        <div>
-            <div style={{ float: "left", position: "relative", display: "block", overflow: "hidden", height: "100%"}}>
-                <img src={image} style={{ margin: "0 1rem"}} alt="biography"></img>
-                <div style={{ display: "flex", justifyContent: "flex-end", position: "absolute", bottom: 0, right: "1rem", color: "#FFF" }}>
+        <div className={classes.root}>
+            <div className={classes.imageContainer}>
+                <img src={image} className={classes.image} alt="biography"/>
+                <div className={classes.imageButtonContainer}>
                     <IconButton aria-label={`GitHub`} >
                         <a href={PROFILE_DATA.gitHubUrl}><GitHubIcon className={classes.icons}/></a>
                     </IconButton>
