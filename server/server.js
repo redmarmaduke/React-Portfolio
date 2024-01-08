@@ -22,4 +22,11 @@ const proxyMiddleware = createProxyMiddleware({
 
 app.use('/graphql', proxyMiddleware);
 
+if (process.env.PRODUCTION) {
+    app.use(express.static('client/build'));
+    app.use('*', (req, res) => {
+        res.sendFile('../client/build/index.html');
+    });
+}
+
 app.listen(PORT);
