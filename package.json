@@ -7,7 +7,8 @@
     "start:dev": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "start:prod": "cd server && npm start",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "install": "cd client && npm i && cd ../server && npm i"
   },
   "keywords": [],
   "author": "",
