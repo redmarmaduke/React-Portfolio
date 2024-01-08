@@ -13,9 +13,8 @@ import './App.scss';
 /**
  * Use Apollo to connect to GitHub using GraphQL
  */
-const token = process.env.REACT_APP_TOKEN || process.env.GITHUB_TOKEN || "";
 const httpLink = createHttpLink({
-  uri: "https://api.github.com/graphql",
+  uri: "/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -24,13 +23,13 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      //authorization: token ? `Bearer ${token}` : "",
     }
   }
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: httpLink, //authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
 
