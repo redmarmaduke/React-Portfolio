@@ -4,7 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "npm install --only=dev",
+    "heroku-prebuild": "npm i --only=dev && cd client && npm i --only=dev && cd ../server && npm i --only=dev",
     "start:dev": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "start:prod": "cd server && npm start",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
