@@ -1,6 +1,9 @@
+const path = require('path');
+
 require('dotenv').config();
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+
 const PORT = process.env.PORT ?? 3001;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN ?? "?";
 
@@ -21,5 +24,12 @@ const proxyMiddleware = createProxyMiddleware({
 });
 
 app.use('/graphql', proxyMiddleware);
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    });
+}
 
 app.listen(PORT);
